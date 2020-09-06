@@ -1,6 +1,10 @@
 require('@nickgraffis/array.equals');
 const math = require('matematik');
 
+module.exports = {
+    kMeans: kMeans,
+};
+
 function centroidInit(data, k) {
     var ranges = math.rangesOf(data);
     var centroids = [];
@@ -48,7 +52,7 @@ function kMeans(data, k) {
     var iterations = 0;
 
     // STEP ONE: Initialise centroids
-    centroids = centroidsInit(data, k);
+    centroids = centroidInit(data, k);
 
     while (!converged) {
         console.log('iterated.');
