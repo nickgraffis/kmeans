@@ -1,0 +1,26 @@
+{
+  "name": "@nickgraffis/kmeans",
+  "version": "1.0.0",
+  "description": "Simple kmean clustering",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickgraffis/kmeans.git"
+  },
+  "keywords": [
+    "kmeans"
+  ],
+  "author": "Nick Graffis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nickgraffis/kmeans/issues"
+  },
+  "homepage": "https://github.com/nickgraffis/kmeans#readme",
+  "dependencies": {
+    "@nickgraffis/array.equals": "^1.0.1",
+    "matematik": "^1.0.1"
+  }
+}
