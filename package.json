@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/nickgraffis/kmeans#readme",
   "dependencies": {
-    "@nickgraffis/array.equals": "^1.0.1",
-    "matematik": "^1.0.3"
+    "matematik": "^1.0.9"
   }
 }

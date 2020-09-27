@@ -1,4 +1,4 @@
-const stats = require('matematik');
+const math = require('matematik');
 
 // Method for comparing arrays (because JavaScript doesn't provide this for some reason)
 Array.prototype.equals = function (array) {
@@ -40,31 +40,13 @@ function randomIntBetween(a, b) {
 }
 
 /**
-* Calculates the Euclidean distance between two points.
-* @param {Array} a - first point
-* @param {Array} b - second point
-* @return {Number} distance - Euclidean distance between the points
-*/
-function euclideanDistance(a, b) {
-    if (a.length != b.length) {
-        //throw 'Error calculating Euclidean distance. Input vectors must have same number of dimensions!';
-        return Math.infinity;
-    }
-    var sum = 0;
-    for (let i = 0; i < a.length; i++) {
-        sum += Math.pow(b[i] - a[i], 2);
-    }
-    return Math.sqrt(sum);
-}
-
-/**
 * Initialises the centroids for the k-means algorithm
 * @param {Array} data - data set
 * @param {Number} k - number of clusters/centroids
 * @return {Array} centroids - array of centroid vectors
 */
 function initialiseCentroidsRandomly(data, k) {
-    var ranges = stats.rangesOf(data);
+    var ranges = math.rangesOf(data);
     var centroids = [];
     for (let i = 0; i < k; i++) {
         var centroid = [];
@@ -90,7 +72,7 @@ function clusterDataPoints(data, centroids) {
     data.forEach(function (point) {
         var nearestCentroid = centroids[0];
         centroids.forEach(function (centroid) {
-            if (euclideanDistance(point, centroid) < euclideanDistance(point, nearestCentroid)) {
+            if (math.euclideanDistance(point, centroid) < math.euclideanDistance(point, nearestCentroid)) {
                 nearestCentroid = centroid;
             }
         });
@@ -107,7 +89,7 @@ function clusterDataPoints(data, centroids) {
 function getNewCentroids(clusters) {
     var centroids = [];
     clusters.forEach(function (cluster) {
-        centroids.push(stats.meanPoint(cluster));
+        centroids.push(math.meanPoint(cluster));
     });
     return centroids;
 }
