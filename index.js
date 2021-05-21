@@ -135,7 +135,3 @@ export function kMeans(data, k) {
     // console.log(clusters);
     return clusters;
 }
-
-module.exports = {
-    kMeans: kMeans
-};
