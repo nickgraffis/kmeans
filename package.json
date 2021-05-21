@@ -1,6 +1,6 @@
 {
   "name": "@nickgraffis/kmeans",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Simple kmean clustering",
   "main": "index.js",
   "scripts": {
