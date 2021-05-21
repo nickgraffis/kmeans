@@ -1,4 +1,4 @@
-const math = require('matematik');
+import { rangesOf, meanPoint, euclideanDistance } from 'matematik'
 
 // Method for comparing arrays (because JavaScript doesn't provide this for some reason)
 Array.prototype.equals = function (array) {
@@ -46,7 +46,7 @@ function randomIntBetween(a, b) {
 * @return {Array} centroids - array of centroid vectors
 */
 function initialiseCentroidsRandomly(data, k) {
-    var ranges = math.rangesOf(data);
+    var ranges = rangesOf(data);
     var centroids = [];
     for (let i = 0; i < k; i++) {
         var centroid = [];
@@ -72,7 +72,7 @@ function clusterDataPoints(data, centroids) {
     data.forEach(function (point) {
         var nearestCentroid = centroids[0];
         centroids.forEach(function (centroid) {
-            if (math.euclideanDistance(point, centroid) < math.euclideanDistance(point, nearestCentroid)) {
+            if (euclideanDistance(point, centroid) < euclideanDistance(point, nearestCentroid)) {
                 nearestCentroid = centroid;
             }
         });
@@ -89,7 +89,7 @@ function clusterDataPoints(data, centroids) {
 function getNewCentroids(clusters) {
     var centroids = [];
     clusters.forEach(function (cluster) {
-        centroids.push(math.meanPoint(cluster));
+        centroids.push(meanPoint(cluster));
     });
     return centroids;
 }
@@ -100,7 +100,7 @@ function getNewCentroids(clusters) {
 * @param {Array} k - number of clusters for data points to be partitioned into
 * @return {Array} clusters - array of clusters (each containing an array of vectors representing a data point)
 */
-function kMeans(data, k) {
+export function kMeans(data, k) {
     var centroids;
     var clusters;
     var oldClusters;

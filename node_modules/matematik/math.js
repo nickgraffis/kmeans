@@ -16,7 +16,7 @@ module.exports = {
 * @param {Number} rows - integer - 2
 * @return {Array{Array}} array - [[0, 0], [0, 0]]
 */
-function zeros (columns, rows) {
+export function zeros (columns, rows) {
   var matrix = [];
   var rowMatrix = [];
   for (let i = 0; i < columns; i++) {
@@ -36,7 +36,7 @@ function zeros (columns, rows) {
 * @return {Number} integer
 * TODO Allow for 2-D arrays with a matrix returned
 */
-function dot(vector1, vector2) {
+export function dot(vector1, vector2) {
   let result = 0;
   if (typeof vector1 === 'object') {
     if (typeof vector2 === 'object' && vector2.length === vector1.length) {
@@ -60,7 +60,7 @@ function dot(vector1, vector2) {
 * @param {Number} min - integer
 * @return {Number} integer - will be between 0 and max
 */
-function getRandomInt(max, min = 0) {
+export function getRandomInt(max, min = 0) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
@@ -72,7 +72,7 @@ function getRandomInt(max, min = 0) {
 * TODO Allow for negative numbers
 * TODO Allow for floating points
 */
-function englishify(num){
+export unction englishify(num){
   var ones = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine',
               'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen',
               'seventeen', 'eighteen', 'nineteen'];
@@ -120,7 +120,7 @@ function englishify(num){
 * @param {Array} b - second point on graph of dimensions N
 * @return {Number} integer
 */
-function euclideanDistance(a, b) {
+export function euclideanDistance(a, b) {
     if (a.length != b.length) {
         throw 'Error calculating Euclidean distance. Input vectors must have same number of dimensions!';
     }
@@ -136,7 +136,7 @@ function euclideanDistance(a, b) {
 * @param {Array} data - data set
 * @return {Number} mean value of data set
 */
-function mean(data) {
+export function mean(data) {
     return data.reduce((total,current) => total += current, 0) / data.length;
 }
 
@@ -145,7 +145,7 @@ function mean(data) {
 * @param {Array} data - data set
 * @return {Array} mean point of data set
 */
-function meanPoint(data) {
+export function meanPoint(data) {
     var theMeanPoint = [];
     if (data.length != 0) {
         for (let i = 0; i < data[0].length; i++) {
@@ -160,7 +160,7 @@ function meanPoint(data) {
 * @param {Array} data - data set
 * @return {Number} range - range of the data set
 */
-function rangeOf(data) {
+export function rangeOf(data) {
     return data.reduce(function(total,current) {
         if (current < total.min) { total.min = current; }
         if (current > total.max) { total.max = current; }
@@ -173,7 +173,7 @@ function rangeOf(data) {
 * @param {Array} data - data set
 * @return {Number} range - range of the data set
 */
-function rangesOf(data) {
+export function rangesOf(data) {
     var ranges = [];
     for (let i = 0; i < data[0].length; i++) {
         ranges.push(rangeOf(data.map(x => x[i])));
